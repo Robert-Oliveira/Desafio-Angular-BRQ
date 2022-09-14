@@ -1,0 +1,56 @@
+<app-header></app-header>
+<main>
+  <div class="container-titulo">
+    <mat-card-title class="titulo"> Gêneros </mat-card-title>
+    <img src="../assets/img/mask.png" alt="" />
+  </div>
+  <form [formGroup]="form" (submit)="salvarGenero()">
+    <section class="container-bg">
+      <div class="container">
+        <div>
+          <mat-label>Cadastrar Gênero</mat-label>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <input matInput formControlName="genero" name="genero" required />
+            <mat-error>{{ error }}</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <button
+        class="btn-cadastrar"
+        mat-flat-button
+        type="submit"
+        [disabled]="!form.valid"
+      >
+        Salvar
+      </button>
+    </section>
+  </form>
+  <mat-card class="card mat-elevation-z0">
+    <p>Terror</p>
+    <div class="btn">
+      <button class="custom-btn btn-1 btn-white"><span>Editar</span></button>
+      <button class="custom-btn btn-2 btn-black">
+        <span>Excluir</span>
+      </button>
+    </div>
+  </mat-card>
+  <mat-card class="card mat-elevation-z0">
+    <p>Ação</p>
+    <div class="btn">
+      <button class="custom-btn btn-1 btn-white"><span>Editar</span></button>
+      <button class="custom-btn btn-2 btn-black">
+        <span>Excluir</span>
+      </button>
+    </div>
+  </mat-card>
+  <mat-card class="card mat-elevation-z0">
+    <p>Comédia</p>
+    <div class="btn">
+      <button class="custom-btn btn-1 btn-white"><span>Editar</span></button>
+      <button class="custom-btn btn-2 btn-black">
+        <span>Excluir</span>
+      </button>
+    </div>
+  </mat-card>
+</main>
+<app-footer></app-footer>

@@ -1,0 +1,29 @@
+c-footer {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  height: 250px;
+  background-color: #f6511d;
+  align-items: center;
+}
+
+.img_logo {
+  margin-top: -70px;
+}
+
+hr {
+  height: 200px;
+  background-color: #fff;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.span {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #fffcfc;
+  gap: 20px;
+  margin-right: -190px;
+}

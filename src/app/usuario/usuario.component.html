@@ -1,0 +1,100 @@
+<app-header></app-header>
+<main>
+  <mat-card-title class="titulo"> Cadastro </mat-card-title>
+
+  <form
+    class="example-form"
+    [formGroup]="form"
+    class="example-form"
+    (submit)="salvarDadosCliente()"
+  >
+    <section class="container-bg">
+      <div class="container">
+        <mat-label>Nome</mat-label>
+        <mat-form-field appearance="fill">
+          <input matInput formControlName="nome" name="nome" required />
+          <mat-error>{{ error }}</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="container">
+        <mat-label>E-mail</mat-label>
+        <mat-form-field appearance="fill">
+          <input
+            type="email"
+            matInput
+            formControlName="email"
+            name="email"
+            placeholder="Ex. pat@example.com"
+            required
+          />
+          <mat-error
+            *ngIf="
+              form.get('email')?.hasError('required') ||
+              form.get('email')?.hasError('email')
+            "
+            >{{ validaEmail() }}</mat-error
+          >
+        </mat-form-field>
+      </div>
+      <div class="container">
+        <mat-label>Telefone</mat-label>
+        <mat-form-field appearance="fill">
+          <input
+            type="tel"
+            matInput
+            formControlName="telefone"
+            name="telefone"
+          />
+          <mat-error>{{ error }}</mat-error>
+        </mat-form-field>
+      </div>
+    </section>
+
+    <button
+      class="btn-cadastrar"
+      mat-flat-button
+      mat-flat-button
+      type="submit"
+      [disabled]="!form.valid"
+    >
+      Cadastrar
+    </button>
+  </form>
+
+  <mat-grid-list cols="4" rowHeight="6:2">
+    <mat-grid-tile>Paulo Andre</mat-grid-tile>
+    <mat-grid-tile>paulo@email.com</mat-grid-tile>
+    <mat-grid-tile>3349 6788</mat-grid-tile>
+    <mat-grid-tile>
+      <div class="btn">
+        <button class="custom-btn btn-1 btn-white"><span>Editar</span></button>
+        <button class="custom-btn btn-2 btn-black">
+          <span>Excluir</span>
+        </button>
+      </div></mat-grid-tile
+    >
+    <mat-grid-tile>Marcos Lucio</mat-grid-tile>
+    <mat-grid-tile>marcos@email.com</mat-grid-tile>
+    <mat-grid-tile>3349 6788</mat-grid-tile>
+    <mat-grid-tile>
+      <div class="btn">
+        <button class="custom-btn btn-1 btn-white"><span>Editar</span></button>
+        <button class="custom-btn btn-2 btn-black">
+          <span>Excluir</span>
+        </button>
+      </div></mat-grid-tile
+    >
+    <mat-grid-tile>Laura Port</mat-grid-tile>
+    <mat-grid-tile>laura@email.com</mat-grid-tile>
+    <mat-grid-tile>3349 6788</mat-grid-tile>
+    <mat-grid-tile>
+      <div class="btn">
+        <button class="custom-btn btn-1 btn-white"><span>Editar</span></button>
+        <button class="custom-btn btn-2 btn-black">
+          <span>Excluir</span>
+        </button>
+      </div></mat-grid-tile
+    >
+  </mat-grid-list>
+</main>
+<app-footer></app-footer>

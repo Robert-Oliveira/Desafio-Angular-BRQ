@@ -1,0 +1,24 @@
+<mat-toolbar class="header">
+  <div>
+    <img src="../assets/img/logo.png" />
+    <ng-container *ngIf="router.routerState.snapshot.url == '/home'">
+      <h2>Conheça nossa Coletânea</h2>
+    </ng-container>
+    <ng-container *ngIf="router.routerState.snapshot.url == '/usuario'">
+      <h2>Faça o Cadastro de usuários e edite, caso necessário</h2>
+      <h3>Pronto para cadastrar?</h3>
+    </ng-container>
+    <ng-container *ngIf="router.routerState.snapshot.url == '/filmes'">
+      <h2>Cadastre os filmes de sua preferência</h2>
+    </ng-container>
+    <ng-container *ngIf="router.routerState.snapshot.url == '/genero'">
+      <h2>Cadastre os gêneros dos filmes</h2>
+    </ng-container>
+  </div>
+  <div>
+    <a mat-button routerLink="../home">Home</a>
+    <a mat-button routerLink="../usuario">Usuários</a>
+    <a mat-button routerLink="../filmes">Filmes</a>
+    <a mat-button routerLink="../genero">Gênero</a>
+  </div>
+</mat-toolbar>

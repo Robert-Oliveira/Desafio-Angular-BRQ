@@ -1,0 +1,33 @@
+.example-card {
+  max-width: 100%;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+}
+mat-card {
+  display: flex;
+  justify-content: space-around;
+}
+.mat-card-image {
+  width: 100px;
+  height: 100px;
+}
+mat-card-content {
+  width: 400px;
+}
+.titulo {
+  text-align: center;
+  color: #000000;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 42px;
+  margin: 2%;
+}
+.card-texto {
+  display: flex;
+  flex-direction: column;
+  margin-left: 11%;
+  margin-bottom: 5%;
+  width: 1000px;
+}

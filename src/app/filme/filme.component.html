@@ -1,0 +1,87 @@
+<app-header></app-header>
+<main>
+  <div class="container-titulo">
+    <mat-card-title class="titulo"> Filmes </mat-card-title>
+    <img src="../assets/img/cinema.png" alt="" />
+  </div>
+  <form [formGroup]="form" (submit)="salvarFilme()">
+    <section class="container-bg">
+      <div class="container">
+        <div>
+          <mat-label>Cadastrar Filmes</mat-label>
+          <mat-form-field appearance="fill">
+            <input
+              matInput
+              formControlName="nomeFilme"
+              name="nomeFilme"
+              required
+            />
+            <mat-error>{{ error }}</mat-error>
+          </mat-form-field>
+        </div>
+        <mat-form-field appearance="fill">
+          <mat-label>Gênero</mat-label>
+          <mat-select [formControl]="toppings" multiple required>
+            <mat-select-trigger>
+              {{toppings.value?.[0] || ''}}
+              <span
+                *ngIf="(toppings.value?.length || 0) > 1"
+                class="example-additional-selection"
+              >
+                (+{{ (toppings.value?.length || 0) - 1 }}
+                {{ toppings.value?.length === 2 ? "other" : "others" }})
+              </span>
+            </mat-select-trigger>
+            <mat-option *ngFor="let topping of toppingList" [value]="topping">{{
+              topping
+            }}</mat-option>
+          </mat-select>
+          <mat-error>{{ errorSelect }}</mat-error>
+        </mat-form-field>
+      </div>
+      <button
+        class="btn-cadastrar"
+        mat-flat-button
+        mat-flat-button
+        type="submit"
+        [disabled]="!form.valid"
+      >
+        Salvar
+      </button>
+    </section>
+  </form>
+
+  <mat-grid-list cols="3" rowHeight="6:1">
+    <mat-grid-tile>Os outros</mat-grid-tile>
+    <mat-grid-tile>Terror</mat-grid-tile>
+    <mat-grid-tile>
+      <div class="btn">
+        <button class="custom-btn btn-1 btn-white"><span>Editar</span></button>
+        <button class="custom-btn btn-2 btn-black">
+          <span>Excluir</span>
+        </button>
+      </div></mat-grid-tile
+    >
+    <mat-grid-tile>Até o último homem</mat-grid-tile>
+    <mat-grid-tile>Ação</mat-grid-tile>
+    <mat-grid-tile>
+      <div class="btn">
+        <button class="custom-btn btn-1 btn-white"><span>Editar</span></button>
+        <button class="custom-btn btn-2 btn-black">
+          <span>Excluir</span>
+        </button>
+      </div></mat-grid-tile
+    >
+    <mat-grid-tile>O máscara </mat-grid-tile>
+    <mat-grid-tile>Comédia</mat-grid-tile>
+    <mat-grid-tile>
+      <div class="btn">
+        <button class="custom-btn btn-1 btn-white"><span>Editar</span></button>
+        <button class="custom-btn btn-2 btn-black">
+          <span>Excluir</span>
+        </button>
+      </div></mat-grid-tile
+    >
+  </mat-grid-list>
+</main>
+<app-footer></app-footer>

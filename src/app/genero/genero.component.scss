@@ -1,0 +1,70 @@
+main {
+  margin: 2% 0 5% 0;
+}
+.container-titulo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container-titulo img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 5%;
+}
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: #fff;
+}
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+  border-radius: 4px;
+  padding: 0.75em 0.75em 0 0.75em;
+  border: 1px solid #000;
+  height: 58px;
+}
+.btn-cadastrar {
+  background-color: #f6511d;
+  width: 180px;
+  height: 58px;
+  color: #ffffff;
+  font-size: 20px;
+  margin-right: 45px;
+}
+.container-bg {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 2%;
+  align-items: center;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+}
+.container div {
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  display: flex;
+  justify-content: space-around;
+  font-size: 20px;
+  width: 100%;
+  gap: 200px;
+  margin-left: -40px;
+}
+
+.editar {
+  color: #ffffff;
+  background-color: #f6511d;
+  border-radius: 20px;
+  width: 125px;
+  height: 35px;
+  margin-right: 12px;
+}
+.excluir {
+  color: #000000;
+  background-color: #41b8d2;
+  border-radius: 20px;
+  width: 125px;
+  height: 35px;
+}

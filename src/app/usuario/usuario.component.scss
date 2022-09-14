@@ -1,0 +1,82 @@
+main {
+  margin: 2% 15% 5% 15%;
+}
+
+.titulo {
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+}
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: #fff;
+}
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+  border-radius: 4px;
+  padding: 0.75em 0.75em 0 0.75em;
+  border: 1px solid #000;
+  color: #000;
+}
+
+mat-label {
+  margin-bottom: 5%;
+  margin-top: 15%;
+  font-size: 20px;
+}
+.container-bg {
+  display: flex;
+  justify-content: space-around;
+  gap: 40px;
+}
+
+.btn-cadastrar {
+  background-color: #f6511d;
+  width: 180px;
+  height: 58px;
+  color: #ffffff;
+  font-size: 20px;
+  margin: 3% 0 5% 0;
+  margin-left: -5%;
+}
+
+mat-form-field {
+  width: 320px;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+}
+.card {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  padding-left: 0%;
+  padding-right: 0%;
+  margin-left: -5%;
+  margin-right: -5%;
+}
+
+// .editar {
+//   color: #ffffff;
+//   background-color: #f6511d;
+//   border-radius: 20px;
+//   width: 125px;
+//   height: 35px;
+//   margin-right: 12px;
+//}
+
+/**/
+
+// .excluir {
+//   color: #000000;
+//   background-color: #41b8d2;
+//   border-radius: 20px;
+//   width: 125px;
+//   height: 35px;
+// }
+::ng-deep .mat-grid-tile-content {
+  justify-content: flex-start !important;
+}
+mat-grid-list {
+  width: 1060px;
+  margin-left: -50px;
+}
