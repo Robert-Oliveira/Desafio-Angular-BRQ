@@ -31,7 +31,6 @@ export class FilmeComponent implements OnInit {
   ngOnInit(): void {
     this.form = this.formBuilder.group({
       nomeFilme: new FormControl('', [Validators.required]),
-      toppingList: new FormControl('', [Validators.required]),
     });
   }
 
