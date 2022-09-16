@@ -17,6 +17,8 @@ export class GeneroComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
+    //checar se os campos estão preenchidos de forma válida
+
     this.form = this.formBuilder.group({
       genero: new FormControl('', [Validators.required]),
     });

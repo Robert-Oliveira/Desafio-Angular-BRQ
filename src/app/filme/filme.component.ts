@@ -16,8 +16,9 @@ export class FilmeComponent implements OnInit {
   error = 'Este campo é obrigatório!';
   errorSelect = 'Selecione uma opção!';
 
-  toppings = new FormControl('');
+  toppings = new FormControl('', [Validators.required]);
 
+  //dados do select
   toppingList: string[] = [
     'Terror',
     'Ação',
@@ -29,9 +30,9 @@ export class FilmeComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
+    //checar se os campos estão preenchidos de forma válida
     this.form = this.formBuilder.group({
       nomeFilme: new FormControl('', [Validators.required]),
-      toppingList: new FormControl('', [Validators.required]),
     });
   }
 

@@ -17,6 +17,8 @@ export class UsuarioComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
+    //checar se os campos estão preenchidos de forma válida
+
     this.form = this.formBuilder.group({
       nome: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -26,6 +28,7 @@ export class UsuarioComponent implements OnInit {
   salvarDadosCliente() {
     console.log('clicou!');
   }
+  //condições para considerar o campo email válido
   validaEmail(): String {
     if (this.form.controls['email'].hasError('required')) {
       return this.error;
