@@ -1,7 +1,7 @@
-import { GeneroComponent } from './genero/genero.component';
-import { FilmeComponent } from './filme/filme.component';
-import { UsuarioComponent } from './usuario/usuario.component';
-import { HomeComponent } from './home/home.component';
+import { GeneroComponent } from './components/genero/genero.component';
+import { FilmeComponent } from './components/filme/filme.component';
+import { UsuarioComponent } from './components/usuario/usuario.component';
+import { HomeComponent } from './components/home/home.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 

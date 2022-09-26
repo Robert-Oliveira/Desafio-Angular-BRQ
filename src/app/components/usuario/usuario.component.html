@@ -6,7 +6,7 @@
     class="example-form"
     [formGroup]="form"
     class="example-form"
-    (submit)="salvarDadosCliente()"
+    (submit)="salvarDadosUsuario()"
   >
     <section class="container-bg">
       <div class="container">
@@ -61,36 +61,22 @@
     </button>
   </form>
 
-  <mat-grid-list cols="4" rowHeight="6:2">
-    <mat-grid-tile>Paulo Andre</mat-grid-tile>
-    <mat-grid-tile>paulo@email.com</mat-grid-tile>
-    <mat-grid-tile>3349 6788</mat-grid-tile>
+  <mat-grid-list cols="4" rowHeight="6:2" *ngFor="let usuario of usuarios">
+    <mat-grid-tile>{{ usuario.nome }}</mat-grid-tile>
+    <mat-grid-tile>{{ usuario.email }}</mat-grid-tile>
+    <mat-grid-tile>{{ usuario.telefone }}</mat-grid-tile>
     <mat-grid-tile>
       <div class="btn">
-        <button class="custom-btn btn-1 btn-white"><span>Editar</span></button>
-        <button class="custom-btn btn-2 btn-black">
-          <span>Excluir</span>
+        <button
+          class="custom-btn btn-1 btn-white"
+          (click)="openDialog(usuario.id, usuario.nome, usuario.email)"
+        >
+          <span>Editar</span>
         </button>
-      </div></mat-grid-tile
-    >
-    <mat-grid-tile>Marcos Lucio</mat-grid-tile>
-    <mat-grid-tile>marcos@email.com</mat-grid-tile>
-    <mat-grid-tile>3349 6788</mat-grid-tile>
-    <mat-grid-tile>
-      <div class="btn">
-        <button class="custom-btn btn-1 btn-white"><span>Editar</span></button>
-        <button class="custom-btn btn-2 btn-black">
-          <span>Excluir</span>
-        </button>
-      </div></mat-grid-tile
-    >
-    <mat-grid-tile>Laura Port</mat-grid-tile>
-    <mat-grid-tile>laura@email.com</mat-grid-tile>
-    <mat-grid-tile>3349 6788</mat-grid-tile>
-    <mat-grid-tile>
-      <div class="btn">
-        <button class="custom-btn btn-1 btn-white"><span>Editar</span></button>
-        <button class="custom-btn btn-2 btn-black">
+        <button
+          class="custom-btn btn-2 btn-black"
+          (click)="deletarUsuario(usuario.id)"
+        >
           <span>Excluir</span>
         </button>
       </div></mat-grid-tile

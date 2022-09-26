@@ -1,0 +1,34 @@
+<h1 mat-dialog-title>Editar Bolo</h1>
+<div mat-dialog-content>
+  <form [formGroup]="form">
+    <mat-form-field class="displayNone" appearance="fill" display="none">
+      <mat-label>ID</mat-label>
+      <input matInput formControlName="id" name="id" value="{{ data.id }}" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>BOLO:</mat-label>
+      <input
+        matInput
+        formControlName="bolo"
+        name="bolo"
+        value="{{ data.nome }}"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Valor:</mat-label>
+      <input
+        matInput
+        formControlName="valor"
+        name="valor"
+        value="{{ data.email }}"
+      />
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button>Cancelar</button>
+  <button mat-button (click)="updateUsuario()">Atualizar</button>
+  <!-- <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button> -->
+</div>

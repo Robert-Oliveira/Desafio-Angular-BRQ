@@ -1,0 +1,57 @@
+<app-header></app-header>
+<main>
+  <div class="container-titulo">
+    <mat-card-title class="titulo"> Filmes </mat-card-title>
+    <img src="../assets/img/cinema.png" alt="" />
+  </div>
+  <form [formGroup]="form" (submit)="salvarDadosFilme()">
+    <section class="container-bg">
+      <div class="container">
+        <div>
+          <mat-label>Cadastrar Filmes</mat-label>
+          <mat-form-field appearance="fill">
+            <input
+              matInput
+              formControlName="nomeFilme"
+              name="nomeFilme"
+              required
+            />
+            <mat-error>{{ error }}</mat-error>
+          </mat-form-field>
+        </div>
+        <mat-form-field appearance="fill">
+          <mat-label>Gênero</mat-label>
+          <mat-select formControlName="select" required>
+            <mat-option *ngFor="let genero of generos" [value]="genero">{{
+              genero.nome
+            }}</mat-option>
+          </mat-select>
+          <mat-error>{{ errorSelect }}</mat-error>
+        </mat-form-field>
+      </div>
+      <button
+        class="btn-cadastrar"
+        mat-flat-button
+        mat-flat-button
+        type="submit"
+        [disabled]="!form.valid"
+      >
+        Salvar
+      </button>
+    </section>
+  </form>
+
+  <mat-grid-list cols="3" rowHeight="6:1" *ngFor="let filmes of filme">
+    <mat-grid-tile>{{ filmes.filme }}</mat-grid-tile>
+    <mat-grid-tile>{{ filmes.genero }}</mat-grid-tile>
+    <mat-grid-tile>
+      <div class="btn">
+        <button class="custom-btn btn-1 btn-white"><span>Editar</span></button>
+        <button class="custom-btn btn-2 btn-black">
+          <span>Excluir</span>
+        </button>
+      </div></mat-grid-tile
+    >
+  </mat-grid-list>
+</main>
+<app-footer></app-footer>

@@ -3,13 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { HomeComponent } from './home/home.component';
-import { UsuarioComponent } from './usuario/usuario.component';
-import { FooterComponent } from './footer/footer.component';
+
 import { FooterModule } from '@coreui/angular';
 import { MatCardModule } from '@angular/material/card';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -17,10 +14,19 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatGridListModule } from '@angular/material/grid-list';
-
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FilmeComponent } from './filme/filme.component';
-import { GeneroComponent } from './genero/genero.component';
+import { MatDialogModule } from '@angular/material/dialog';
+
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { FilmeComponent } from './components/filme/filme.component';
+import { GeneroComponent } from './components/genero/genero.component';
+import { HomeComponent } from './components/home/home.component';
+import { UsuarioComponent } from './components/usuario/usuario.component';
+import { DialogFilmeComponent } from './views/dialog-filme/dialog-filme.component';
+import { DialogGeneroComponent } from './views/dialog-genero/dialog-genero.component';
+import { DialogUsuarioComponent } from './views/dialog-usuario/dialog-usuario.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +37,9 @@ import { GeneroComponent } from './genero/genero.component';
     FooterComponent,
     FilmeComponent,
     GeneroComponent,
+    DialogFilmeComponent,
+    DialogGeneroComponent,
+    DialogUsuarioComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,6 +56,8 @@ import { GeneroComponent } from './genero/genero.component';
     MatToolbarModule,
     MatSelectModule,
     MatGridListModule,
+    HttpClientModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

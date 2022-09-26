@@ -4,7 +4,7 @@
     <mat-card-title class="titulo"> Gêneros </mat-card-title>
     <img src="../assets/img/mask.png" alt="" />
   </div>
-  <form [formGroup]="form" (submit)="salvarGenero()">
+  <form [formGroup]="form" (submit)="salvarDadosGenero()">
     <section class="container-bg">
       <div class="container">
         <div>
@@ -25,29 +25,14 @@
       </button>
     </section>
   </form>
-  <mat-card class="card mat-elevation-z0">
-    <p>Terror</p>
+  <mat-card class="card mat-elevation-z0" *ngFor="let genero of generos">
+    <p>{{ genero.nome }}</p>
     <div class="btn">
       <button class="custom-btn btn-1 btn-white"><span>Editar</span></button>
-      <button class="custom-btn btn-2 btn-black">
-        <span>Excluir</span>
-      </button>
-    </div>
-  </mat-card>
-  <mat-card class="card mat-elevation-z0">
-    <p>Ação</p>
-    <div class="btn">
-      <button class="custom-btn btn-1 btn-white"><span>Editar</span></button>
-      <button class="custom-btn btn-2 btn-black">
-        <span>Excluir</span>
-      </button>
-    </div>
-  </mat-card>
-  <mat-card class="card mat-elevation-z0">
-    <p>Comédia</p>
-    <div class="btn">
-      <button class="custom-btn btn-1 btn-white"><span>Editar</span></button>
-      <button class="custom-btn btn-2 btn-black">
+      <button
+        class="custom-btn btn-2 btn-black"
+        (click)="deletarGenero(genero.id)"
+      >
         <span>Excluir</span>
       </button>
     </div>
