@@ -44,6 +44,11 @@
       "id": 5,
       "filme": "dsdadsa",
       "genero": "Terror"
+    },
+    {
+      "id": 6,
+      "filme": "dsadadas",
+      "genero": "dsadsada"
     }
   ],
   "generos": [
@@ -70,6 +75,10 @@
     {
       "id": 6,
       "nome": "Suspense"
+    },
+    {
+      "id": 7,
+      "nome": "dsadsada"
     }
   ]
 }

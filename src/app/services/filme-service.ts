@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class SalvarFilmesService {
   private listaFilmes: any;
+  private filme!: CriarFilmes;
 
   private url = 'http://localhost:3000/filmes';
   private urlGenero = 'http://localhost:3000/generos';
@@ -34,5 +35,15 @@ export class SalvarFilmesService {
   }
   deletarFilmes(id: any) {
     return this.httpClient.delete(`${this.url}/${id}`);
+  }
+  updateFilmes(filme: CriarFilmes) {
+    return this.httpClient.put<CriarFilmes>(
+      `${this.url}/${this.filmes.id}`,
+      filme
+    );
+  }
+
+  lerFilmesById(id: number): Observable<CriarFilmes> {
+    return this.httpClient.get<CriarFilmes>(`${this.url}/${id}`);
   }
 }

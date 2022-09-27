@@ -1,11 +1,6 @@
 import { CriarUsuario } from './../../models/criar-usuario';
 import { Component, Inject, OnInit } from '@angular/core';
-import {
-  FormGroup,
-  FormBuilder,
-  Validators,
-  FormControl,
-} from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
@@ -17,14 +12,14 @@ export class DialogUsuarioComponent implements OnInit {
   public form!: FormGroup;
 
   constructor(
-    public formbuilder: FormBuilder,
+    public formBuilder: FormBuilder,
 
     public dialogRef: MatDialogRef<DialogUsuarioComponent>,
     @Inject(MAT_DIALOG_DATA) public data: CriarUsuario
   ) {}
 
   ngOnInit(): void {
-    this.form = this.formbuilder.group({
+    this.form = this.formBuilder.group({
       id: ['', [Validators.required]],
       nome: ['', [Validators.required]],
       email: ['', [Validators.required]],
@@ -44,7 +39,7 @@ export class DialogUsuarioComponent implements OnInit {
       telefone: this.form.controls['telefone'].value,
     };
     this.data.id = this.form.controls['id'].value;
-    this.data.nome = this.form.controls['telefone'].value;
+    this.data.nome = this.form.controls['nome'].value;
     this.data.email = this.form.controls['email'].value;
     this.data.telefone = this.form.controls['telefone'].value;
     this.dialogRef.close(this.data);
@@ -52,6 +47,5 @@ export class DialogUsuarioComponent implements OnInit {
   }
   onNoClick(): void {
     this.dialogRef.close();
-    this.form.reset();
   }
 }

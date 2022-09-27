@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>Editar Bolo</h1>
+<h1 mat-dialog-title>Editar Usuario</h1>
 <div mat-dialog-content>
   <form [formGroup]="form">
     <mat-form-field class="displayNone" appearance="fill" display="none">
@@ -7,28 +7,39 @@
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-      <mat-label>BOLO:</mat-label>
+      <mat-label>Usuario:</mat-label>
       <input
         matInput
-        formControlName="bolo"
-        name="bolo"
+        formControlName="nome"
+        name="nome"
         value="{{ data.nome }}"
       />
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-      <mat-label>Valor:</mat-label>
+      <mat-label>Email:</mat-label>
       <input
         matInput
-        formControlName="valor"
-        name="valor"
+        formControlName="email"
+        name="email"
         value="{{ data.email }}"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Telefone:</mat-label>
+      <input
+        matInput
+        formControlName="telefone"
+        name="telefone"
+        value="{{ data.telefone }}"
       />
     </mat-form-field>
   </form>
 </div>
 <div mat-dialog-actions>
-  <button mat-button>Cancelar</button>
-  <button mat-button (click)="updateUsuario()">Atualizar</button>
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+  <button mat-button (click)="updateUsuario()" [disabled]="!form.valid">
+    Atualizar
+  </button>
   <!-- <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button> -->
 </div>

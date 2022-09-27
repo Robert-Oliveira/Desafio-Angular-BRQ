@@ -103,7 +103,7 @@ export class UsuarioComponent implements OnInit {
     exitAnimationDuration: string
   ): void {
     this.salvarUsuarioService.lerUsuarioById(id).subscribe({
-      //pegar bolo
+      //pegar usuario
       next: (usuario: CriarUsuario) => {
         //abir o dialog
         const dialogRef = this.dialog.open(DialogUsuarioComponent, {
@@ -116,24 +116,22 @@ export class UsuarioComponent implements OnInit {
             email: usuario.email,
             telefone: usuario.telefone,
           },
-          //data: {name: this.name, animal: this.animal},
         });
 
         //receber fechamento do dialog
         dialogRef.afterClosed().subscribe((usuario) => {
           this.salvarUsuarioService.updateUsuario(usuario).subscribe({
             next: () => {
-              //alert("bolo salvo com sucesso")
               this.ngOnInit();
             },
             error: () => {
-              alert('Erro ao salvar Bolo');
+              alert('Erro ao salvar usuario');
             },
           });
         });
       },
       error: () => {
-        console.log('erro ao editar bolo');
+        console.log('erro ao editar usuario');
       },
     });
   }

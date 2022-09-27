@@ -1,3 +1,4 @@
+import { DialogFilmeComponent } from './../../views/dialog-filme/dialog-filme.component';
 import { SalvarFilmesService } from '../../services/filme-service';
 import { CriarFilmes } from '../../models/criar-filmes';
 import { Component, OnInit } from '@angular/core';
@@ -9,6 +10,7 @@ import {
 } from '@angular/forms';
 import { CriarGenero } from '../../models/criar-genero';
 import { SalvarGeneroService } from '../../services/genero-service';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-filme',
@@ -21,10 +23,9 @@ export class FilmeComponent implements OnInit {
   errorSelect = 'Selecione uma opção!';
   filme!: CriarFilmes[];
   generos!: CriarGenero[];
-  toppings = new FormControl('', [Validators.required]);
-
   constructor(
     private formBuilder: FormBuilder,
+    public dialog: MatDialog,
     private salvarFilmesService: SalvarFilmesService,
     private salvarGeneroService: SalvarGeneroService
   ) {}
@@ -80,6 +81,39 @@ export class FilmeComponent implements OnInit {
       },
       error: () => {
         console.log('error');
+      },
+    });
+  }
+  openDialog(
+    id: number,
+    enterAnimationDuration: string,
+    exitAnimationDuration: string
+  ): void {
+    this.salvarFilmesService.lerFilmesById(id).subscribe({
+      next: (filme: CriarFilmes) => {
+        const dialogRef = this.dialog.open(DialogFilmeComponent, {
+          width: '250px',
+          enterAnimationDuration,
+          exitAnimationDuration,
+          data: {
+            id: filme.id,
+            filme: filme.filme,
+            genero: filme.genero,
+          },
+        });
+        dialogRef.afterClosed().subscribe((filme) => {
+          this.salvarFilmesService.updateFilmes(filme).subscribe({
+            next: () => {
+              this.ngOnInit();
+            },
+            error: () => {
+              alert('erro ao salvar');
+            },
+          });
+        });
+      },
+      error: () => {
+        console.log('erro ao editar filme');
       },
     });
   }

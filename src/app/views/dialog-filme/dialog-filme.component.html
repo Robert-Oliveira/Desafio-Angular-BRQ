@@ -1,1 +1,37 @@
-<p>dialog-filme works!</p>
+<h1 mat-dialog-title>Editar Filme</h1>
+<div mat-dialog-content>
+  <form [formGroup]="form">
+    <mat-form-field class="displayNone" appearance="fill" display="none">
+      <mat-label>ID</mat-label>
+      <input matInput formControlName="id" name="id" value="{{ data.id }}" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Filme:</mat-label>
+      <input
+        matInput
+        formControlName="nome"
+        name="nome"
+        value="{{ data.filme }}"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Email:</mat-label>
+      <input
+        matInput
+        formControlName="genero"
+        name="genero"
+        value="{{ data.genero }}"
+      />
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+  <button mat-button (click)="updateFilme()" [disabled]="!form.valid">
+    Atualizar
+  </button>
+  <!-- <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button> -->
+  <!-- </div> -->
+</div>
