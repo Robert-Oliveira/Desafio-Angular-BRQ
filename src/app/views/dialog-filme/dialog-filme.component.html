@@ -17,7 +17,7 @@
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-      <mat-label>Email:</mat-label>
+      <mat-label>Genero:</mat-label>
       <input
         matInput
         formControlName="genero"
@@ -28,9 +28,13 @@
   </form>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">Cancelar</button>
-  <button mat-button (click)="updateFilme()" [disabled]="!form.valid">
-    Atualizar
+  <button class="btn-salvar-dialog" (click)="onNoClick()">Fechar</button>
+  <button
+    class="btn-excluir-dialog"
+    (click)="updateFilme()"
+    [disabled]="!form.valid"
+  >
+    Salvar Alterações
   </button>
   <!-- <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button> -->
   <!-- </div> -->

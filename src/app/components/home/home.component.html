@@ -4,6 +4,7 @@
   <div class="titulo">
     <h1>Monte sua coletânea de filmes...</h1>
   </div>
+
   <div class="card-texto">
     <h2>
       Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam iste
@@ -17,34 +18,43 @@
     </p>
   </div>
   <mat-card class="example-card">
-    <div class="container">
-      <img mat-card-image src="../assets/img/cinema.png" alt="logo filme" />
-      <h2>Filmes</h2>
-      <mat-card-content>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam
-          doloribus eaque, quod tenetur velit autem magni animi blanditiis
-          ducimus eum quos neque recusandae, vitae, officia laboriosam
-          voluptatum molestiae incidunt optio!
-        </p>
-      </mat-card-content>
-    </div>
-    <div class="container">
-      <img
-        mat-card-image
-        src="../assets/img/mask.png"
-        alt="Photo of a Shiba Inu"
-      />
-      <h2>Categoria</h2>
-      <mat-card-content>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam
-          doloribus eaque, quod tenetur velit autem magni animi blanditiis
-          ducimus eum quos neque recusandae, vitae, officia laboriosam
-          voluptatum molestiae incidunt optio!
-        </p>
-      </mat-card-content>
-    </div>
+    <a routerLink="../filmes">
+      <mat-card class="box-shadow cards">
+        <div class="container">
+          <img mat-card-image src="../assets/img/cinema.png" alt="logo filme" />
+          <h2>Filmes</h2>
+          <mat-card-content>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam
+              doloribus eaque, quod tenetur velit autem magni animi blanditiis
+              ducimus eum quos neque recusandae, vitae, officia laboriosam
+              voluptatum molestiae incidunt optio!
+            </p>
+          </mat-card-content>
+        </div>
+      </mat-card>
+    </a>
+    <a routerLink="../genero">
+      <mat-card class="box-shadow cards">
+        <div class="container">
+          <img
+            mat-card-image
+            src="../assets/img/mask.png"
+            alt="Photo of a Shiba Inu"
+          />
+
+          <h2>Categoria</h2>
+          <mat-card-content>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam
+              doloribus eaque, quod tenetur velit autem magni animi blanditiis
+              ducimus eum quos neque recusandae, vitae, officia laboriosam
+              voluptatum molestiae incidunt optio!
+            </p>
+          </mat-card-content>
+        </div>
+      </mat-card>
+    </a>
   </mat-card>
 </main>
 

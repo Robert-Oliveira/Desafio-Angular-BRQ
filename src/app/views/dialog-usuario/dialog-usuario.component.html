@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>Editar Usuario</h1>
+<h1 mat-dialog-title>Editar Usuário</h1>
 <div mat-dialog-content>
   <form [formGroup]="form">
     <mat-form-field class="displayNone" appearance="fill" display="none">
@@ -7,7 +7,7 @@
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-      <mat-label>Usuario:</mat-label>
+      <mat-label>Usuário:</mat-label>
       <input
         matInput
         formControlName="nome"
@@ -37,9 +37,13 @@
   </form>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">Cancelar</button>
-  <button mat-button (click)="updateUsuario()" [disabled]="!form.valid">
-    Atualizar
+  <button class="btn-salvar-dialog" (click)="onNoClick()">Fechar</button>
+  <button
+    class="btn-excluir-dialog"
+    (click)="updateUsuario()"
+    [disabled]="!form.valid"
+  >
+    Salvar Alterações
   </button>
   <!-- <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button> -->
 </div>

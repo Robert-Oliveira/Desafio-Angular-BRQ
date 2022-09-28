@@ -9,7 +9,6 @@ import { Observable } from 'rxjs';
 })
 export class SalvarFilmesService {
   private listaFilmes: any;
-  private filme!: CriarFilmes;
 
   private url = 'http://localhost:3000/filmes';
   private urlGenero = 'http://localhost:3000/generos';

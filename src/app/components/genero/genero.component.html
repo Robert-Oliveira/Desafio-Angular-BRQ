@@ -28,7 +28,12 @@
   <mat-card class="card mat-elevation-z0" *ngFor="let genero of generos">
     <p>{{ genero.nome }}</p>
     <div class="btn">
-      <button class="custom-btn btn-1 btn-white"><span>Editar</span></button>
+      <button
+        class="custom-btn btn-1 btn-white"
+        (click)="openDialog(genero.id, '0ms', '0ms')"
+      >
+        <span>Editar</span>
+      </button>
       <button
         class="custom-btn btn-2 btn-black"
         (click)="deletarGenero(genero.id)"

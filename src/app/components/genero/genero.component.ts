@@ -1,3 +1,4 @@
+import { DialogGeneroComponent } from './../../views/dialog-genero/dialog-genero.component';
 import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
@@ -5,6 +6,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { CriarGenero } from 'src/app/models/criar-genero';
 import { SalvarGeneroService } from 'src/app/services/genero-service';
 @Component({
@@ -19,6 +21,8 @@ export class GeneroComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
+    public dialog: MatDialog,
+
     private salvarGeneroService: SalvarGeneroService
   ) {}
 
@@ -66,6 +70,35 @@ export class GeneroComponent implements OnInit {
       },
       error: () => {
         console.log('error');
+      },
+    });
+  }
+  openDialog(
+    id: number,
+    enterAnimationDuration: string,
+    exitAnimationDuration: string
+  ): void {
+    this.salvarGeneroService.lerGenerosById(id).subscribe({
+      next: (genero: CriarGenero) => {
+        const dialogRef = this.dialog.open(DialogGeneroComponent, {
+          width: '250px',
+          enterAnimationDuration,
+          exitAnimationDuration,
+          data: { id: genero.id, nome: genero.nome },
+        });
+        dialogRef.afterClosed().subscribe((genero) => {
+          this.salvarGeneroService.updateGenero(genero).subscribe({
+            next: () => {
+              this.ngOnInit();
+            },
+            error: () => {
+              alert('erro ao salvar');
+            },
+          });
+        });
+      },
+      error: () => {
+        console.log('erro ao editar filme');
       },
     });
   }

@@ -8,7 +8,6 @@ import { CriarGenero } from '../models/criar-genero';
 })
 export class SalvarGeneroService {
   private listaGenero: any;
-  private genero!: CriarGenero;
 
   private url = 'http://localhost:3000/generos';
 
@@ -36,5 +35,8 @@ export class SalvarGeneroService {
 
   updateGenero(genero: CriarGenero): Observable<CriarGenero> {
     return this.httpClient.put<CriarGenero>(`${this.url}/${genero.id}`, genero);
+  }
+  lerGenerosById(id: number): Observable<CriarGenero> {
+    return this.httpClient.get<CriarGenero>(`${this.url}/${id}`);
   }
 }
