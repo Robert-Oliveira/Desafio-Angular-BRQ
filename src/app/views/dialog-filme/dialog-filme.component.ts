@@ -34,25 +34,31 @@ export class DialogFilmeComponent implements OnInit {
     this.form = this.formBuilder.group({
       id: ['', [Validators.required]],
       nome: ['', [Validators.required]],
-      genero: ['', [Validators.required]],
+      genero: [''],
+      select: [''],
     });
     this.form.controls['id'].setValue(this.data.id);
     this.form.controls['nome'].setValue(this.data.filme);
-    this.form.controls['genero'].setValue(this.data.genero);
-    console.log(this.data.filme);
+    // this.form.controls['genero'].setValue(this.data.genero);
+    this.form.controls['select'].setValue(this.data.genero);
+    console.log(this.data.id);
   }
-  updateFilme() {
+  updateFilmes() {
     let filme: CriarFilmes = {
       id: this.form.controls['id'].value,
       filme: this.form.controls['nome'].value,
-      genero: this.form.controls['genero'].value,
+      genero: this.form.controls['select'].value.nome,
     };
+
     this.data.id = this.form.controls['id'].value;
     this.data.filme = this.form.controls['nome'].value;
-    this.data.genero = this.form.controls['genero'].value;
+    this.data.genero = this.form.controls['select'].value;
     this.dialogRef.close(this.data);
+    console.log(this.data);
+
     this.form.reset();
   }
+
   onNoClick(): void {
     this.dialogRef.close();
   }

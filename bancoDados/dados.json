@@ -28,27 +28,12 @@
     {
       "id": 2,
       "filme": "Até o último homem",
-      "genero": "Ação"
+      "genero": "Comédia"
     },
     {
       "id": 3,
       "filme": "O máscara",
       "genero": "Comédia"
-    },
-    {
-      "id": 4,
-      "filme": "fdfsfd",
-      "genero": "Terror"
-    },
-    {
-      "id": 5,
-      "filme": "dsdadsa",
-      "genero": "Terror"
-    },
-    {
-      "id": 6,
-      "filme": "dsadadas",
-      "genero": "dsadsada"
     }
   ],
   "generos": [

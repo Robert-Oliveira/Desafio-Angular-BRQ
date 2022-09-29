@@ -36,10 +36,7 @@ export class SalvarFilmesService {
     return this.httpClient.delete(`${this.url}/${id}`);
   }
   updateFilmes(filme: CriarFilmes) {
-    return this.httpClient.put<CriarFilmes>(
-      `${this.url}/${this.filmes.id}`,
-      filme
-    );
+    return this.httpClient.put<CriarFilmes>(`${this.url}/${filme.id}`, filme);
   }
 
   lerFilmesById(id: number): Observable<CriarFilmes> {

@@ -120,14 +120,16 @@ export class UsuarioComponent implements OnInit {
 
         //receber fechamento do dialog
         dialogRef.afterClosed().subscribe((usuario) => {
-          this.salvarUsuarioService.updateUsuario(usuario).subscribe({
-            next: () => {
-              this.ngOnInit();
-            },
-            error: () => {
-              alert('Erro ao salvar usuario');
-            },
-          });
+          if (usuario) {
+            this.salvarUsuarioService.updateUsuario(usuario).subscribe({
+              next: () => {
+                this.ngOnInit();
+              },
+              error: () => {
+                alert('Erro ao salvar usuario');
+              },
+            });
+          }
         });
       },
       error: () => {

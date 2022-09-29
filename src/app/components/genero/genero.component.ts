@@ -87,14 +87,16 @@ export class GeneroComponent implements OnInit {
           data: { id: genero.id, nome: genero.nome },
         });
         dialogRef.afterClosed().subscribe((genero) => {
-          this.salvarGeneroService.updateGenero(genero).subscribe({
-            next: () => {
-              this.ngOnInit();
-            },
-            error: () => {
-              alert('erro ao salvar');
-            },
-          });
+          if (genero) {
+            this.salvarGeneroService.updateGenero(genero).subscribe({
+              next: () => {
+                this.ngOnInit();
+              },
+              error: () => {
+                alert('erro ao salvar');
+              },
+            });
+          }
         });
       },
       error: () => {

@@ -1,7 +1,7 @@
 <h1 mat-dialog-title>Editar Filme</h1>
 <div mat-dialog-content>
   <form [formGroup]="form">
-    <mat-form-field class="displayNone" appearance="fill" display="none">
+    <mat-form-field class="displayNone" appearance="fill">
       <mat-label>ID</mat-label>
       <input matInput formControlName="id" name="id" value="{{ data.id }}" />
     </mat-form-field>
@@ -16,7 +16,7 @@
       />
     </mat-form-field>
 
-    <mat-form-field appearance="fill">
+    <!-- <mat-form-field appearance="fill">
       <mat-label>Genero:</mat-label>
       <input
         matInput
@@ -24,14 +24,22 @@
         name="genero"
         value="{{ data.genero }}"
       />
+    </mat-form-field> -->
+    <mat-form-field appearance="fill">
+      <mat-label>Gênero</mat-label>
+      <mat-select formControlName="select" required>
+        <mat-option *ngFor="let genero of generos" value="{{ genero.nome }}">{{
+          genero.nome
+        }}</mat-option>
+      </mat-select>
     </mat-form-field>
   </form>
 </div>
 <div mat-dialog-actions>
-  <button class="btn-salvar-dialog" (click)="onNoClick()">Fechar</button>
+  <button class="btn-fechar-dialog" (click)="onNoClick()">Fechar</button>
   <button
-    class="btn-excluir-dialog"
-    (click)="updateFilme()"
+    class="btn-salvar-dialog"
+    (click)="updateFilmes()"
     [disabled]="!form.valid"
   >
     Salvar Alterações

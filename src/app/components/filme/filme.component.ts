@@ -11,6 +11,7 @@ import {
 import { CriarGenero } from '../../models/criar-genero';
 import { SalvarGeneroService } from '../../services/genero-service';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-filme',
@@ -27,7 +28,8 @@ export class FilmeComponent implements OnInit {
     private formBuilder: FormBuilder,
     public dialog: MatDialog,
     private salvarFilmesService: SalvarFilmesService,
-    private salvarGeneroService: SalvarGeneroService
+    private salvarGeneroService: SalvarGeneroService,
+    private snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -66,10 +68,12 @@ export class FilmeComponent implements OnInit {
 
     this.salvarFilmesService.salvarFilme(filme).subscribe({
       next: () => {
+        this.alertaDados('salvoSucesso');
         this.ngOnInit();
       },
       error: () => {
         console.log('error');
+        this.alertaDados('erroSalvar');
       },
     });
   }
@@ -77,10 +81,12 @@ export class FilmeComponent implements OnInit {
   deletarFilme(id: any) {
     this.salvarFilmesService.deletarFilmes(id).subscribe({
       next: () => {
+        this.alertaDados('excluido');
+
         this.ngOnInit();
       },
       error: () => {
-        console.log('error');
+        this.alertaDados('erroExcluir');
       },
     });
   }
@@ -102,19 +108,63 @@ export class FilmeComponent implements OnInit {
           },
         });
         dialogRef.afterClosed().subscribe((filme) => {
-          this.salvarFilmesService.updateFilmes(filme).subscribe({
-            next: () => {
-              this.ngOnInit();
-            },
-            error: () => {
-              alert('erro ao salvar');
-            },
-          });
+          if (filme) {
+            this.salvarFilmesService.updateFilmes(filme).subscribe({
+              next: () => {
+                this.ngOnInit();
+                this.alertaDados('alteracaoSalva');
+              },
+              error: () => {
+                this.alertaDados('erroEditar');
+              },
+            });
+          }
         });
       },
       error: () => {
-        console.log('erro ao editar filme');
+        this.alertaDados('erroEditar');
       },
     });
+  }
+
+  alertaDados(tipoAlerta: String) {
+    switch (tipoAlerta) {
+      case 'salvoSucesso':
+        this.snackBar.open('Dados salvos com sucesso!', undefined, {
+          duration: 2000,
+          panelClass: 'snackbar-tema',
+        });
+        break;
+      case 'erroSalvar':
+        this.snackBar.open('Nenhum dados foi salvo!', undefined, {
+          duration: 2000,
+          panelClass: 'snackbar-tema',
+        });
+        break;
+      case 'alteracaoSalva':
+        this.snackBar.open('Alterações salvas com sucesso!', undefined, {
+          duration: 2000,
+          panelClass: 'snackbar-tema',
+        });
+        break;
+      case 'erroEditar':
+        this.snackBar.open('Nenhuma alteração realizada!', undefined, {
+          duration: 2000,
+          panelClass: 'snackbar-tema',
+        });
+        break;
+      case 'excluido':
+        this.snackBar.open('Excluido com sucesso!', undefined, {
+          panelClass: 'snackbar-tema',
+          duration: 2000,
+        });
+        break;
+      case 'erroExcluir':
+        this.snackBar.open('Não foi possivel excluir!', undefined, {
+          panelClass: 'snackbar-tema',
+          duration: 2000,
+        });
+        break;
+    }
   }
 }
