@@ -22,6 +22,7 @@ export class DialogFilmeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    //mosta a lista de genero no dialog
     this.salvarGeneroService.lerGeneros().subscribe({
       next: (generos: CriarGenero[]) => {
         this.generos = generos;
@@ -30,7 +31,7 @@ export class DialogFilmeComponent implements OnInit {
         console.log('error');
       },
     });
-
+    //valida se os campos estão selecionados
     this.form = this.formBuilder.group({
       id: ['', [Validators.required]],
       nome: ['', [Validators.required]],
@@ -41,8 +42,8 @@ export class DialogFilmeComponent implements OnInit {
     this.form.controls['nome'].setValue(this.data.filme);
     // this.form.controls['genero'].setValue(this.data.genero);
     this.form.controls['select'].setValue(this.data.genero);
-    console.log(this.data.id);
   }
+  // Método para atualizar o filme
   updateFilmes() {
     let filme: CriarFilmes = {
       id: this.form.controls['id'].value,
@@ -58,7 +59,7 @@ export class DialogFilmeComponent implements OnInit {
 
     this.form.reset();
   }
-
+  //função para sair do dailog
   onNoClick(): void {
     this.dialogRef.close();
   }

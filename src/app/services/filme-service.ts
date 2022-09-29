@@ -21,24 +21,27 @@ export class SalvarFilmesService {
   set filmes(filmes: CriarFilmes) {
     this.listaFilmes.push(filmes);
   }
+  //serviço para ler a lista de filmes
   lerFilmes(): Observable<CriarFilmes[]> {
     return this.httpClient.get<CriarFilmes[]>(this.url);
   }
-
+  //serviço para ler a lista de genero
   lerGeneros(): Observable<CriarGenero[]> {
     return this.httpClient.get<CriarGenero[]>(this.urlGenero);
   }
-
+  //serviço para salvar um objeto do tipo filme
   salvarFilme(filme: CriarFilmes): Observable<CriarFilmes> {
     return this.httpClient.post<CriarFilmes>(this.url, filme);
   }
+  //serviço para deletar um objeto da lista
   deletarFilmes(id: any) {
     return this.httpClient.delete(`${this.url}/${id}`);
   }
+  //serviço para atualizar um objeto da lista
   updateFilmes(filme: CriarFilmes) {
     return this.httpClient.put<CriarFilmes>(`${this.url}/${filme.id}`, filme);
   }
-
+  //serviço para pegar um objeto da lista pelo ID
   lerFilmesById(id: number): Observable<CriarFilmes> {
     return this.httpClient.get<CriarFilmes>(`${this.url}/${id}`);
   }

@@ -39,7 +39,7 @@ export class FilmeComponent implements OnInit {
       select: new FormControl('', [Validators.required]),
     });
 
-    //dados do select
+    //dados do select gerado atraves do banco de dados de genero
     this.salvarGeneroService.lerGeneros().subscribe({
       next: (generos: CriarGenero[]) => {
         this.generos = generos;
@@ -48,13 +48,14 @@ export class FilmeComponent implements OnInit {
         console.log('error');
       },
     });
+    //dados para lista de filmes gerado atraves do banco de dados de filme
     this.salvarFilmesService.lerFilmes().subscribe({
       next: (filmes: CriarFilmes[]) => {
         this.filme = filmes;
       },
     });
   }
-
+  //Função para salvar os dados do formulario
   salvarDadosFilme() {
     const id = this.filme[this.filme.length - 1].id + 1;
     const nomeFilme = this.form.controls['nomeFilme'].value;
@@ -65,24 +66,22 @@ export class FilmeComponent implements OnInit {
       filme: nomeFilme,
       genero: genero,
     };
-
+    // chama a função salvar da service e dispara o snackBar
     this.salvarFilmesService.salvarFilme(filme).subscribe({
       next: () => {
         this.alertaDados('salvoSucesso');
         this.ngOnInit();
       },
       error: () => {
-        console.log('error');
         this.alertaDados('erroSalvar');
       },
     });
   }
-
+  // função para deletar um item da lista e disparar o snackBar
   deletarFilme(id: any) {
     this.salvarFilmesService.deletarFilmes(id).subscribe({
       next: () => {
         this.alertaDados('excluido');
-
         this.ngOnInit();
       },
       error: () => {
@@ -90,6 +89,7 @@ export class FilmeComponent implements OnInit {
       },
     });
   }
+  //função para enviar os dados para o dialog que abre no botão editar
   openDialog(
     id: number,
     enterAnimationDuration: string,
@@ -107,8 +107,10 @@ export class FilmeComponent implements OnInit {
             genero: filme.genero,
           },
         });
+        //após fechar o dialog ele checa se o usuario esta enviando algum dado ou se ele apenas saiu do modal
         dialogRef.afterClosed().subscribe((filme) => {
           if (filme) {
+            //faz o update com os dados recebidos do dailog e disparar o snackBar
             this.salvarFilmesService.updateFilmes(filme).subscribe({
               next: () => {
                 this.ngOnInit();
@@ -126,7 +128,7 @@ export class FilmeComponent implements OnInit {
       },
     });
   }
-
+  // função que pega o tipo de alerta e disparar uma msg no snackBar
   alertaDados(tipoAlerta: String) {
     switch (tipoAlerta) {
       case 'salvoSucesso':

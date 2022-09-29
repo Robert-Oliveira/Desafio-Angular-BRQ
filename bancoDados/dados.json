@@ -33,7 +33,12 @@
     {
       "id": 3,
       "filme": "O máscara",
-      "genero": "Comédia"
+      "genero": "Suspense"
+    },
+    {
+      "id": 4,
+      "filme": "dsdsa",
+      "genero": "Terror"
     }
   ],
   "generos": [

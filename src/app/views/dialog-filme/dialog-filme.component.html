@@ -16,18 +16,9 @@
       />
     </mat-form-field>
 
-    <!-- <mat-form-field appearance="fill">
-      <mat-label>Genero:</mat-label>
-      <input
-        matInput
-        formControlName="genero"
-        name="genero"
-        value="{{ data.genero }}"
-      />
-    </mat-form-field> -->
     <mat-form-field appearance="fill">
       <mat-label>Gênero</mat-label>
-      <mat-select formControlName="select" required>
+      <mat-select class="select-dialog" formControlName="select" required>
         <mat-option *ngFor="let genero of generos" value="{{ genero.nome }}">{{
           genero.nome
         }}</mat-option>
@@ -36,14 +27,17 @@
   </form>
 </div>
 <div mat-dialog-actions>
-  <button class="btn-fechar-dialog" (click)="onNoClick()">Fechar</button>
   <button
+    mat-flat-button
     class="btn-salvar-dialog"
     (click)="updateFilmes()"
+    type="submit"
     [disabled]="!form.valid"
   >
     Salvar Alterações
   </button>
+  <button class="btn-fechar-dialog" (click)="onNoClick()">Fechar</button>
+
   <!-- <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button> -->
   <!-- </div> -->
 </div>

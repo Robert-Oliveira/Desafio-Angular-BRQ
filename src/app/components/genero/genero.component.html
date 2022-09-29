@@ -25,22 +25,26 @@
       </button>
     </section>
   </form>
-  <mat-card class="card mat-elevation-z0" *ngFor="let genero of generos">
-    <p>{{ genero.nome }}</p>
-    <div class="btn">
-      <button
-        class="custom-btn btn-1 btn-white"
-        (click)="openDialog(genero.id, '0ms', '0ms')"
-      >
-        <span>Editar</span>
-      </button>
-      <button
-        class="custom-btn btn-2 btn-black"
-        (click)="deletarGenero(genero.id)"
-      >
-        <span>Excluir</span>
-      </button>
-    </div>
-  </mat-card>
+  <section class="section-lista">
+    <mat-card class="card mat-elevation-z0" *ngFor="let genero of generos">
+      <p>{{ genero.nome }}</p>
+      <div class="btn">
+        <div>
+          <button
+            class="custom-btn btn-1 btn-white"
+            (click)="openDialog(genero.id, '0ms', '0ms')"
+          >
+            <span>Editar</span>
+          </button>
+          <button
+            class="custom-btn btn-2 btn-black"
+            (click)="deletarGenero(genero.id)"
+          >
+            <span>Excluir</span>
+          </button>
+        </div>
+      </div>
+    </mat-card>
+  </section>
 </main>
 <app-footer></app-footer>

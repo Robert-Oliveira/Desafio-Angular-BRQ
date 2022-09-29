@@ -18,13 +18,15 @@
   </form>
 </div>
 <div mat-dialog-actions>
-  <button class="btn-excluir-dialog" (click)="onNoClick()">Fechar</button>
   <button
+    mat-flat-button
     class="btn-salvar-dialog"
     (click)="updateGenero()"
     [disabled]="!form.valid"
   >
     Salvar Alterações
   </button>
+  <button class="btn-fechar-dialog" (click)="onNoClick()">Fechar</button>
+
   <!-- <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button> -->
 </div>

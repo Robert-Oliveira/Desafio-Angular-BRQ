@@ -46,11 +46,10 @@ main {
 
 .card {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   font-size: 20px;
-  width: 100%;
-  gap: 200px;
-  margin-left: -40px;
+  width: 87%;
+  margin-left: 40px;
 }
 
 .editar {
@@ -67,4 +66,12 @@ main {
   border-radius: 20px;
   width: 125px;
   height: 35px;
+}
+.section-lista {
+  display: flex;
+  flex-direction: column;
+}
+section.section-lista {
+  width: 80%;
+  margin-left: 10%;
 }

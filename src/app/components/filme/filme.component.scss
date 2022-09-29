@@ -42,12 +42,14 @@ main {
   height: 58px;
   color: #ffffff;
   font-size: 20px;
+  margin: 16px;
+  margin-left: -10px;
 }
 .container-bg {
   display: flex;
   justify-content: space-between;
   height: 75px;
-  width: 80%;
+  // width: 80%;
   gap: 50px;
   margin-left: 10%;
   margin-bottom: 2%;
@@ -56,6 +58,7 @@ main {
 .container {
   display: flex;
   align-items: flex-end;
+  gap: 50px;
 }
 mat-form-field {
   width: 400px;
@@ -76,24 +79,14 @@ mat-select {
   padding-left: 10%;
   width: 1080px;
 }
-.editar {
-  color: #ffffff;
-  background-color: #f6511d;
-  border-radius: 20px;
-  width: 125px;
-  height: 35px;
-  margin-right: 12px;
-}
-.excluir {
-  color: #000000;
-  background-color: #41b8d2;
-  border-radius: 20px;
-  width: 125px;
-  height: 35px;
-}
+
 ::ng-deep .mat-grid-tile-content {
   justify-content: flex-start !important;
 }
 mat-grid-list {
   margin-left: 130px;
+}
+.container-filme {
+  display: flex;
+  flex-direction: column;
 }

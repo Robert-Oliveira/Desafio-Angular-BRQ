@@ -18,6 +18,7 @@ export class DialogGeneroComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    //valida se os campos estão selecionados
     this.form = this.formBuilder.group({
       id: ['', [Validators.required]],
       nome: ['', [Validators.required]],
@@ -25,6 +26,7 @@ export class DialogGeneroComponent implements OnInit {
     this.form.controls['id'].setValue(this.data.id);
     this.form.controls['nome'].setValue(this.data.nome);
   }
+  // Método para atualizar o genero
   updateGenero() {
     let genero: CriarGenero = {
       id: this.form.controls['id'].value,
@@ -34,6 +36,7 @@ export class DialogGeneroComponent implements OnInit {
     this.data.nome = this.form.controls['nome'].value;
     this.dialogRef.close(this.data);
   }
+  //função para sair do dailog
   onNoClick(): void {
     this.openDialog.close();
   }

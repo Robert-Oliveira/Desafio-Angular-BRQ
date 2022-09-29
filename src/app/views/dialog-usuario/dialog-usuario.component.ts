@@ -19,6 +19,7 @@ export class DialogUsuarioComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    //valida se os campos estão selecionados
     this.form = this.formBuilder.group({
       id: ['', [Validators.required]],
       nome: ['', [Validators.required]],
@@ -31,6 +32,7 @@ export class DialogUsuarioComponent implements OnInit {
     this.form.controls['email'].setValue(this.data.email);
     this.form.controls['telefone'].setValue(this.data.telefone);
   }
+  // Método para atualizar o usuario
   updateUsuario() {
     let usuario: CriarUsuario = {
       id: this.form.controls['id'].value,
@@ -45,6 +47,7 @@ export class DialogUsuarioComponent implements OnInit {
     this.dialogRef.close(this.data);
     this.form.reset();
   }
+  //função para sair do dailog
   onNoClick(): void {
     this.dialogRef.close();
   }

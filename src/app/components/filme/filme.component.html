@@ -7,7 +7,7 @@
   <form [formGroup]="form" (submit)="salvarDadosFilme()">
     <section class="container-bg">
       <div class="container">
-        <div>
+        <div class="container-filme">
           <mat-label>Cadastrar Filmes</mat-label>
           <mat-form-field appearance="fill">
             <input
@@ -29,16 +29,16 @@
 
           <mat-error>{{ errorSelect }}</mat-error>
         </mat-form-field>
+        <button
+          class="btn-cadastrar"
+          mat-flat-button
+          mat-flat-button
+          type="submit"
+          [disabled]="!form.valid"
+        >
+          Salvar
+        </button>
       </div>
-      <button
-        class="btn-cadastrar"
-        mat-flat-button
-        mat-flat-button
-        type="submit"
-        [disabled]="!form.valid"
-      >
-        Salvar
-      </button>
     </section>
   </form>
 
